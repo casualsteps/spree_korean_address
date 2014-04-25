@@ -5,4 +5,7 @@ Spree::Address.class_eval do
   end
 
   validates :customs_no, presence: true
+
+  def state_validate
+  end
 end
