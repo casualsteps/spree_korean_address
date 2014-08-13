@@ -5,6 +5,7 @@ Spree::Address.class_eval do
 #    callback.raw_filter.attributes.reject! { |key| key == :lastname || key == :country || key == :city } if callback.raw_filter.respond_to?(:attributes)
 #  end
 
-  validates :customs_no, presence: true
+### This is no longer necessary – it's only required if the order is over $200
+#  validates :customs_no, presence: true
 
 end
