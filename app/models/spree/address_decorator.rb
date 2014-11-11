@@ -6,6 +6,11 @@ Spree::Address.class_eval do
 #  end
 
 ### This is no longer necessary – it's only required if the order is over $200
-#  validates :customs_no, presence: true
+    validates :customs_no, presence: true, if: :order_over_200?
+
+    def order_over_200?
+      order = Spree::Order.where("bill_address_id = ? or ship_address_id = ?", self.id, self.id).order("created_at").last
+      order.present? and order.mock_total.to_f > 200
+    end
 
 end
