@@ -8,4 +8,12 @@ Spree::Address.class_eval do
 ### This is no longer necessary – it's only required if the order is over $200
 #  validates :customs_no, presence: true
 
+ _validate_callbacks.each do |callback|
+   callback.raw_filter.attributes.reject! { |key| key == :lastname || key == :address2 || key == :city } if callback.raw_filter.respond_to?(:attributes)
+ end
+  
+ private
+  def state_validate
+    true
+  end
 end
