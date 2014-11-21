@@ -2,8 +2,14 @@
   <fieldset>
     <%= form.text_field :firstname, :placeholder => "이름", :class => "required", :data => { "msg-required" => "이름 입력 부탁 드립니다." } %>
     <%= form.phone_field :phone, :placeholder => "휴대폰 번호", :class => "required", :data => { "msg-required" => "전화번호 입력 부탁 드립니다." } %>
-    <a href="#" id="showDaumPostCode">우편번호찾기</a>
-    <%= form.search_field :zipcode, :placeholder => "우편번호", :class => "required", :data => { "msg-required" => "우편번호 입력 부탁 드립니다." } %>
+    <div class="zip-code">
+    	<div class="zipcode-01">
+    		<%= form.phone_field :zipcode, :placeholder => "우편번호", :class => "required", :data => { "msg-required" => "우편번호 입력 부탁 드립니다." } %>
+    	</div><!-- zip code 01 -->
+    	<div class="zipcode-02">
+    		<a href="#" id="showDaumPostCode">우편번호</button>
+    	</div><!-- zip code 02 -->
+    </div>
     <%= form.text_field :address1, :placeholder => "배송지주소1 (도로명주소)", :class => "required", :data => { "msg-required" => "주소 입력 부탁 드립니다." } %>
     <%= form.text_field :address2, :placeholder => "배송지주소2 (도로명주소)", :class => "required", :data => { "msg-required" => "주소 입력 부탁 드립니다." } %>
     <%= form.text_field :other_comment, :placeholder => "그 외 남기실 말 또는 배송지 메모" %>
