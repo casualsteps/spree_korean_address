@@ -16,6 +16,18 @@ Spree::Address.class_eval do
  _validate_callbacks.each do |callback|
    callback.raw_filter.attributes.reject! { |key| key == :lastname || key == :address2 || key == :city } if callback.raw_filter.respond_to?(:attributes)
  end
+ 
+  def format_customs_no
+    return nil unless self.customs_no.present? 
+    if self.customs_no.index('-').present?
+      customs_no = self.customs_no.split("-")
+      customs_no.second.gsub! customs_no.second[0..3], '****'
+      customs_no = customs_no.join('-')
+    else
+      customs_no = self.customs_no.gsub! self.customs_no[0..3], '****'
+    end
+    customs_no
+  end
   
  private
   def state_validate
