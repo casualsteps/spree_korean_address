@@ -10,5 +10,5 @@ Deface::Override.new(
     <div class='field billing-row'>
       <%= f.label :other_comment, Spree.t(:other_comment) %>
       <%= f.text_field :other_comment, :class => 'fullwidth' %>
-    </div>
-  ")
+    </div>",
+ :original => 'd424a7538b7b067c012004aa0727f902458c78a9')
