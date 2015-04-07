@@ -10,7 +10,7 @@ Spree::Address.class_eval do
 
     def order_over_200?
       order = Spree::Order.where("bill_address_id = ? or ship_address_id = ?", self.id, self.id).order("created_at").last
-      order.present? and order.mock_total.to_f > 200
+      order.present? and order.tax_charge?
     end
 
  _validate_callbacks.each do |callback|
